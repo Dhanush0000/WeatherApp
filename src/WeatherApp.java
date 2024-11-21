@@ -1,17 +1,20 @@
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
-
+import org.json.simple.parser.JSONParser;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Scanner;
 
 public class WeatherApp {
     //fetch weather data
     public static JSONObject getWeatherData(String locationName){
         JSONArray locationData = getLocationData(locationName);
+
+        return null;
     }
 
-    private static JSONArray getLocationData(String locationName){
+    public static JSONArray getLocationData(String locationName){
         locationName = locationName.replaceAll(" ", "+");
 
         //build API url with location parameter
@@ -35,11 +38,22 @@ public class WeatherApp {
                 while (scanner.hasNext()){
                     resultJson.append(scanner.nextLine());
                 }
+                scanner.close();
+
+                conn.disconnect(); // close url connection
+
+                JSONParser parser = new JSONParser();
+                JSONObject resultsJsonObj = (JSONObject) parser.parse(String.valueOf(resultJson));
+
+                //get the list of location
+                JSONArray locationData = (JSONArray) resultsJsonObj.get("results");
+                return locationData;
             }
 
         }catch (Exception e){
             e.printStackTrace();
         }
+        return null;
     }
 
     private static HttpURLConnection fetchApiResponse(String urlString){
