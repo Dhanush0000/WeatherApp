@@ -5,8 +5,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class WeatherApp extends JFrame{
-    public WeatherApp(){
+public class WeatherAppGUI extends JFrame{
+    public WeatherAppGUI(){
         super("Weather App");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(450, 650);
