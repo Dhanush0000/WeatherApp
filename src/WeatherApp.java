@@ -3,6 +3,7 @@ import org.json.simple.JSONArray;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.util.Scanner;
 
 public class WeatherApp {
     //fetch weather data
@@ -20,6 +21,22 @@ public class WeatherApp {
         try {
             //calling api
             HttpURLConnection conn = fetchApiResponse(urlString);
+
+            //200 means successful connection
+            if(conn.getResponseCode() != 200){
+                System.out.println("Error: Could not connect to API");
+                return null;
+            }
+            else {
+                //store API results
+                StringBuilder resultJson = new StringBuilder();
+                Scanner scanner = new Scanner(conn.getInputStream());
+
+                while (scanner.hasNext()){
+                    resultJson.append(scanner.nextLine());
+                }
+            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
