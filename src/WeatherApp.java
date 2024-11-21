@@ -41,12 +41,30 @@ public class WeatherApp extends JFrame{
         temperatureText.setHorizontalAlignment(SwingConstants.CENTER);
         add(temperatureText);
 
+        //weather conditions description
         JLabel weatherConditionDesc = new JLabel("Cloudy");
         weatherConditionDesc.setBounds(0, 405, 450, 36);
         weatherConditionDesc.setFont(new Font("Dialog", Font.PLAIN, 32));
         weatherConditionDesc.setHorizontalAlignment(SwingConstants.CENTER);
         add(weatherConditionDesc);
 
+        //humidity image
+        JLabel humidityImage = new JLabel(loadImage("src/assets/humidity.png"));
+        humidityImage.setBounds(15, 500, 74, 66);
+        add(humidityImage);
+
+        //humidity text
+        JLabel humidityText = new JLabel("<html><b>Humidity</b> 100%</html>");
+        humidityText.setBounds(90, 500, 85, 55);
+        humidityText.setFont(new Font("Dialog", Font.PLAIN, 16));
+        add(humidityText);
+
+        //windspeed image
+        JLabel windspeedImage = new JLabel(loadImage("src/assets/windspeed.png"));
+        windspeedImage.setBounds(220, 500, 74,66);
+        add(windspeedImage);
+
+        //windspeed text
     }
     private ImageIcon loadImage(String resourcePath){
         try {
