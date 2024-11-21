@@ -1,6 +1,8 @@
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
+import java.net.HttpURLConnection;
+
 public class WeatherApp {
     //fetch weather data
     public static JSONObject getWeatherData(String locationName){
@@ -15,9 +17,20 @@ public class WeatherApp {
                 locationName + "&count=1-&language=en&format=json";
 
         try {
-
+            //calling api
+            HttpURLConnection conn = fetchApiResponse(urlString);
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    private static HttpURLConnection fetchApiResponse(String urlString){
+        try {
+            //attempting to create a new connection
+            URL url = new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+
         }
     }
 }
