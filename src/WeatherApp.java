@@ -65,6 +65,10 @@ public class WeatherApp extends JFrame{
         add(windspeedImage);
 
         //windspeed text
+        JLabel windspeedText = new JLabel("<html><b>Windspeed</b> 15km/h<html>");
+        windspeedText.setBounds(310, 500, 85, 55);
+        windspeedText.setFont(new Font("Dialog", Font.PLAIN, 16));
+        add(windspeedText);
     }
     private ImageIcon loadImage(String resourcePath){
         try {
