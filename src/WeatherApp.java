@@ -29,6 +29,11 @@ public class WeatherApp extends JFrame{
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchButton.setBounds(375, 13, 47, 45);
         add(searchButton);
+
+        JLabel weatherConditionImage = new JLabel(loadImage("src/assets/cloudy.png"));
+        weatherConditionImage.setBounds(0, 125, 450, 217);
+        add(weatherConditionImage);
+
     }
     private ImageIcon loadImage(String resourcePath){
         try {
