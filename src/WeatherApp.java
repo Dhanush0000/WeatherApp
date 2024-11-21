@@ -1,6 +1,7 @@
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 
+import java.io.IOException;
 import java.net.HttpURLConnection;
 
 public class WeatherApp {
@@ -30,7 +31,14 @@ public class WeatherApp {
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
+            conn.setRequestMethod("GET");
 
+            conn.connect();
+            return conn;
+        }catch (IOException e){
+            e.printStackTrace();
         }
+
+        return null;
     }
 }
