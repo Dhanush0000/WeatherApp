@@ -1,3 +1,5 @@
 # WeatherApp
 
-Starting the project
+Starting the Project
+
+Initialised required files and Images
