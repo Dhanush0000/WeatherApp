@@ -18,8 +18,8 @@ public class WeatherApp {
         locationName = locationName.replaceAll(" ", "+");
 
         //build API url with location parameter
-        String urlString = "https://geocoding-api.open-meteo.com/v1/search?name="+
-                locationName+"&count=10-&language=en&format=json";
+        String urlString = "https://geocoding-api.open-meteo.com/v1/search?name=" +
+                locationName + "&count=10&language=en&format=json";
 
         try {
             //calling api
