@@ -39,6 +39,7 @@ public class WeatherApp {
             JSONParser parser = new JSONParser();
             JSONObject resultJsonObj = (JSONObject) parser.parse(String.valueOf(resultJson));
 
+            JSONObject hourly = (JSONObject) resultJsonObj.get("hourly");
 
 
         } catch (Exception e) {
