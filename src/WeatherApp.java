@@ -21,6 +21,24 @@ public class WeatherApp {
 
         try {
 
+            HttpURLConnection conn = fetchApiResponse(urlString);
+
+            if (conn.getResponseCode() != 200){
+                System.out.println("Error: Could not connect to API");
+                return null;
+            }
+            StringBuilder resultJson = new StringBuilder();
+            Scanner scanner = new Scanner(conn.getInputStream());
+            while(scanner.hasNext()){
+                resultJson.append(scanner.nextLine());
+            }
+            scanner.close();
+
+            conn.disconnect();
+
+            JSONParser parser = new JSONParser();
+            JSONObject resultJsonObj = (JSONObject) parser.parse(String.valueOf(resultJson));
+
 
 
         } catch (Exception e) {
