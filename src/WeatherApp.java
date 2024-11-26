@@ -15,8 +15,17 @@ public class WeatherApp {
         double latitude = (double) location.get("lattitude");
         double longitude = (double) location.get("longitude");
 
-        String urlString = "";
+        String urlString = "https://api.open-meteo.com/v1/forecast?" +
+                "latitude=" + latitude + "&longitude=" + longitude +
+                "&hourly=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=Asia%2FSingapore";
 
+        try {
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
