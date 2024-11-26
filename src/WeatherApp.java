@@ -11,6 +11,12 @@ public class WeatherApp {
     public static JSONObject getWeatherData(String locationName){
         JSONArray locationData = getLocationData(locationName);
 
+        JSONObject location =(JSONObject) locationData.get(0);
+        double latitude = (double) location.get("lattitude");
+        double longitude = (double) location.get("longitude");
+
+        String urlString = "";
+
         return null;
     }
 
