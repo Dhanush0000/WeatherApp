@@ -4,6 +4,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class WeatherApp {
@@ -40,6 +41,8 @@ public class WeatherApp {
             JSONObject resultJsonObj = (JSONObject) parser.parse(String.valueOf(resultJson));
 
             JSONObject hourly = (JSONObject) resultJsonObj.get("hourly");
+            JSONArray time = (JSONArray) hourly.get("time");
+            int index = findIndexOfCurrentTime(time);
 
 
         } catch (Exception e) {
@@ -105,5 +108,13 @@ public class WeatherApp {
         }
 
         return null;
+    }
+
+    private static int findIndexOfCurrentTime(JSONArray timeList){
+        String currentTime = getCurrentTime();
+    }
+    private static String getCurrentTime(){
+        LocalDateTime currentDateTime = LocalDateTime.now();
+
     }
 }
