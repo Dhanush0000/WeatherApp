@@ -113,8 +113,10 @@ public class WeatherApp {
 
     private static int findIndexOfCurrentTime(JSONArray timeList){
         String currentTime = getCurrentTime();
+
+        return 0;
     }
-    private static String getCurrentTime(){
+    public static String getCurrentTime(){
         LocalDateTime currentDateTime = LocalDateTime.now();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy'T'HH':00'");
