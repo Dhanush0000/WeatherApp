@@ -87,6 +87,23 @@ public class WeatherAppGUI extends JFrame{
                 }
 
                 weatherData = WeatherApp.getWeatherData(userInput);
+
+                String weatherCondition = (String) weatherData.get("weather_condition");
+
+                switch (weatherCondition){
+                    case "Clear":
+                        weatherConditionImage.setIcon(loadImage("src/assets/clear.png"));
+                        break;
+                    case "Cloudy":
+                        weatherConditionImage.setIcon(loadImage("src/assets/cloudy.png"));
+                        break;
+                    case "Rain":
+                        weatherConditionImage.setIcon(loadImage("src/assets/rain.png"));
+                        break;
+                    case "Snow":
+                        weatherConditionImage.setIcon(loadImage("src/assets/snow.png"));
+                        break;
+                }
             }
         });
         add(searchButton);
