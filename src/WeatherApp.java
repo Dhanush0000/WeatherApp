@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class WeatherApp {
@@ -116,5 +117,9 @@ public class WeatherApp {
     private static String getCurrentTime(){
         LocalDateTime currentDateTime = LocalDateTime.now();
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy'T'HH':00'");
+
+        String formattedDateTime = currentDateTime.format(formatter);
+        return formattedDateTime;
     }
 }
