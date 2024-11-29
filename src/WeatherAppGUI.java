@@ -104,6 +104,18 @@ public class WeatherAppGUI extends JFrame{
                         weatherConditionImage.setIcon(loadImage("src/assets/snow.png"));
                         break;
                 }
+
+                //update the text
+                double temperature = (double) weatherData.get("temperature");
+                temperatureText.setText(temperature + " C");
+
+                weatherConditionDesc.setText(weatherCondition);
+
+                long humidity = (long) weatherData.get("humidity");
+                humidityText.setText("<html><b>Humidity</b> " + humidity + "%</html>");
+
+                long windspeed = (long) weatherData.get("windspeed");
+                windspeedText.setText("<html><b>Windspped</b> " + windspeed + "%</html>");
             }
         });
         add(searchButton);
