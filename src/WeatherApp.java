@@ -50,6 +50,8 @@ public class WeatherApp {
             double temperature = (double) temperatureData.get(index);
 
             //get weather code
+            JSONArray weathercode = (JSONArray) hourly.get("weathercode");
+            String weatherCondition = convertWeatherCode((long) weathercode.get(index));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -135,5 +137,20 @@ public class WeatherApp {
 
         String formattedDateTime = currentDateTime.format(formatter);
         return formattedDateTime;
+    }
+
+    private static String convertWeatherCode(long weathercode){
+        String weatherCondition = "";
+        if(weathercode == 0L){
+            weatherCondition = "Clear";
+        } else if (weathercode <= 3L && weathercode > 0L) {
+            weatherCondition = "Cloudy";
+        } else if ((weathercode >= 51L && weathercode <= 67L)
+                    || (weathercode >= 80L && weathercode <= 99L)) {
+            weatherCondition = "Rain";
+        } else if (weathercode >= 71L && weathercode <= 77L) {
+            weatherCondition = "Snow";
+        }
+        return weatherCondition;
     }
 }
