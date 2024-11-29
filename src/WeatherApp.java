@@ -45,6 +45,11 @@ public class WeatherApp {
             JSONArray time = (JSONArray) hourly.get("time");
             int index = findIndexOfCurrentTime(time);
 
+            //get temperature data
+            JSONArray temperatureData = (JSONArray) hourly.get("temperature_2m");
+            double temperature = (double) temperatureData.get(index);
+
+            //get weather code
 
         } catch (Exception e) {
             e.printStackTrace();
