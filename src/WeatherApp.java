@@ -14,7 +14,7 @@ public class WeatherApp {
         JSONArray locationData = getLocationData(locationName);
 
         JSONObject location =(JSONObject) locationData.get(0);
-        double latitude = (double) location.get("lattitude");
+        double latitude = (double) location.get("latitude");
         double longitude = (double) location.get("longitude");
 
         String urlString = "https://api.open-meteo.com/v1/forecast?" +
